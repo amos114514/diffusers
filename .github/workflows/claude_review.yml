@@ -88,6 +88,7 @@ jobs:
 
       - uses: anthropics/claude-code-action@80b31826338489861333dc17217865dfe8085cdc  # v1.0.155
         env:
+          ANTHROPIC_BASE_URL: ${{ vars.ANTHROPIC_BASE_URL }}
           CLAUDE_SYSTEM_PROMPT: |
             You are a strict code reviewer for the diffusers library (huggingface/diffusers).
 
@@ -123,7 +124,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_args: '--model claude-opus-4-6 --append-system-prompt "${{ env.CLAUDE_SYSTEM_PROMPT }}"'
+          claude_args: '--model claude-sonnet-4-6 --append-system-prompt "${{ env.CLAUDE_SYSTEM_PROMPT }}"'
           settings: |
             {
               "permissions": {
